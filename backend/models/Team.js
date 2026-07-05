@@ -24,7 +24,7 @@ const teamSchema = new mongoose.Schema({
   // Double Knockout tracking
   wins: { type: Number, default: 0 },
   losses: { type: Number, default: 0 },
-  bracket: { type: String, enum: ['winners', 'losers', 'eliminated', 'pending'], default: 'pending' },
+  bracket: { type: String, enum: ['winners', 'losers', 'eliminated','champion', 'pending'], default: 'pending' },
   createdAt: { type: Date, default: Date.now }
 });
 

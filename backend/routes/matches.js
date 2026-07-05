@@ -74,7 +74,8 @@ router.put('/:id/score', adminAuth, async (req, res) => {
       if (match.bracketType === 'winners') {
         await Team.findByIdAndUpdate(winnerId, { bracket: 'winners' });
         await Team.findByIdAndUpdate(loserId, { bracket: 'losers' });
-      } else if (match.bracketType === 'losers') {
+      }
+       else if (match.bracketType === 'losers') {
         await Team.findByIdAndUpdate(winnerId, { bracket: 'losers' });
         await Team.findByIdAndUpdate(loserId, { bracket: 'eliminated' });
       } else {

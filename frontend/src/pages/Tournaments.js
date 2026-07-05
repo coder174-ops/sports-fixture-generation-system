@@ -113,7 +113,9 @@ const Tournaments = () => {
                   </div>
                 </div>
                 <div style={{padding:'12px 20px',borderTop:'1px solid var(--border)',background:'var(--bg-primary)',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                  <span style={{fontSize:'0.72rem',color:'var(--text-muted)'}}>🔄 Double Knockout</span>
+                <span style={{fontSize:'0.72rem',color:'var(--text-muted)'}}>
+                 {t.format === 'single_knockout' ? '➡️ Single Knockout' : '🔄 Double Knockout'}
+                 </span>
                   <span style={{fontSize:'0.8rem',color:'var(--royal)',fontWeight:700}}>View Details →</span>
                 </div>
               </div>
