@@ -3,7 +3,15 @@ const mongoose = require('mongoose');
 const tournamentSchema = new mongoose.Schema({
   name: { type: String, required: true },
   sport: { type: String, required: true, enum: ['cricket', 'football', 'basketball', 'badminton', 'tennis', 'volleyball', 'other'] },
-  format: { type: String, enum: ['single_knockout', 'double_knockout'], default: 'single_knockout' },
+  format: { type: String, 
+  enum: [
+    'single_knockout', 
+    'double_knockout',
+    'knockout_cum_league', 
+    'league_cum_knockout',
+    'knockout_cum_knockout'
+  ], default: 'single_knockout' },
+  
   maxTeams: { type: Number, required: true },
   playersPerTeam: { type: Number, required: true },
   venue: { type: String, required: true },

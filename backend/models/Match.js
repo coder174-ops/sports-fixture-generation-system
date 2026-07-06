@@ -12,7 +12,16 @@ const matchSchema = new mongoose.Schema({
   matchNumber: { type: Number },
   round: { type: Number, required: true },
   roundName: { type: String },
-  bracketType: { type: String, enum: ['winners', 'losers', 'grand_final'], required: true },
+  bracketType: { type: String, enum: ['winners', 'losers', 'grand_final', 'knockout', 'league'], required: true },
+  // Combination-format extras
+    stage: { type: Number, default: 1 },        // 1 = first stage, 2 = second stage
+    stageLabel: { type: String },                // e.g. "Knockout Stage", "League Stage"
+    groupName: { type: String, default: null },  // e.g. "Group A" (league/group-knockout matches)
+    sourceMatchA: { type: mongoose.Schema.Types.ObjectId, ref: 'Match', default: null }, // teamA = winner of this match (used for league re-pairing)
+    sourceMatchB: { type: mongoose.Schema.Types.ObjectId, ref: 'Match', default: null },
+    sourceGroupA: { type: String, default: null }, // teamA = winner of this group (league cum knockout)
+    sourceGroupB: { type: String, default: null },
+    decidesChampion: { type: Boolean, default: false },
   teamA: { type: mongoose.Schema.Types.ObjectId, ref: 'Team', default: null },
   teamB: { type: mongoose.Schema.Types.ObjectId, ref: 'Team', default: null },
   teamAScore: scoreSchema,
